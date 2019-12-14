@@ -14,7 +14,7 @@
  * Version information
  */
 void dbutils_version(void) {
-	fprintf(stdout, "This is 'dbutils' version %s, build on %s at %s, with %s\n", DBUTILS_VERSION, DBUTILS_BUILD_DATE, DBUTILS_BUILD_TIME, DBUTILS_COMPILER);
+	fprintf(stdout, "This is 'dbutils' version %s, build on %s at %s, with %s for architecture %s\n", DBUTILS_VERSION, DBUTILS_BUILD_DATE, DBUTILS_BUILD_TIME, DBUTILS_COMPILER, DBUTILS_ARCH);
 }
 
 /*

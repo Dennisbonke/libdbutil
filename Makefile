@@ -28,9 +28,9 @@ else
 #	$(error Build mode $(BUILD_MODE) not supported by this Makefile)
 endif
 
-all:	build/libdbutil.so.1.0.0
+all:	build/libdbutil.so.1.0.1
 
-build/libdbutil.so.1.0.0:	$(OBJS)
+build/libdbutil.so.1.0.1:	$(OBJS)
 	mkdir -pv build
 	$(CXX) $(LDFLAGS) -o $@ $^ $(LIBS)
 	

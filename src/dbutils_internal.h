@@ -14,7 +14,7 @@ extern "C" {
 #ifndef LIB_DBUTILS_INTERNAL_H_
 #define LIB_DBUTILS_INTERNAL_H_
 
-#define DBUTILS_VERSION "v1.0.0"
+#define DBUTILS_VERSION "v1.0.1"
 #define DBUTILS_BUILD_DATE __DATE__
 #define DBUTILS_BUILD_TIME __TIME__
 #define DBUTILS_SOURCE "https://github.com/Dennisbonke/libdbutil"
@@ -28,6 +28,19 @@ extern "C" {
 # define COMPILER_VERSION "unknown-compiler how-did-you-do-that"
 #endif
 #define DBUTILS_COMPILER COMPILER_VERSION
+
+#if defined(__i386__)
+#define TARGET_ARCH "i386 - Intel / AMD 32-bit"
+#elif defined(__amd64__)
+#define TARGET_ARCH "AMD64 - Intel / AMD 64-bit"
+#elif defined(__arm__)
+#define TARGET_ARCH "ARM"
+#else
+#define TARGET_ARCH "How did you do that?"
+#warning "Please add your architecture identification to the list"
+#endif
+
+#define DBUTILS_ARCH TARGET_ARCH
 
 #endif /* LIB_DBUTILS_INTERNAL_H_ */
 #ifdef __cplusplus

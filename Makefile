@@ -31,6 +31,7 @@ endif
 all:	build/libdbutil.so.1.0.0
 
 build/libdbutil.so.1.0.0:	$(OBJS)
+	mkdir -pv build
 	$(CXX) $(LDFLAGS) -o $@ $^ $(LIBS)
 	
 

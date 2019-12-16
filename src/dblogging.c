@@ -187,15 +187,15 @@ void _log(char *title, int line_no, log_type_t level, const char *fmt, ...) {
 
 		if(level > WARNING) {
 			if(last_errno) {
-				fprintf(stderr, "[%s:%s:%d]%s %s, errno: %d - %s\n", get_time(), title, line_no, type, (char *)buffer, last_errno, err_text);
+				fprintf(stderr, "[%s:%s:%d]%s %s, errno: %d - %s", get_time(), title, line_no, type, (char *)buffer, last_errno, err_text);
 			} else {
-				fprintf(stderr, "[%s:%s:%d]%s %s\n", get_time(), title, line_no, type, (char *)buffer);
+				fprintf(stderr, "[%s:%s:%d]%s %s", get_time(), title, line_no, type, (char *)buffer);
 			}
 		} else {
 			if(last_errno) {
-				fprintf(stdout, "[%s:%s:%d]%s %s, errno: %d - %s\n", get_time(), title, line_no, type, (char *)buffer, last_errno, err_text);
+				fprintf(stdout, "[%s:%s:%d]%s %s, errno: %d - %s", get_time(), title, line_no, type, (char *)buffer, last_errno, err_text);
 			} else {
-				fprintf(stdout, "[%s:%s:%d]%s %s\n", get_time(), title, line_no, type, (char *)buffer);
+				fprintf(stdout, "[%s:%s:%d]%s %s", get_time(), title, line_no, type, (char *)buffer);
 			}
 		}
 

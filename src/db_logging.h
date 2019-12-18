@@ -14,6 +14,7 @@ extern "C" {
 #include <stdarg.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
 
 typedef enum {
 	DEBUGGING = 0, /* Debug only */

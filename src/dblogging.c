@@ -6,7 +6,6 @@
  */
 
 #include <stdio.h>
-#include <time.h>
 #include <sys/time.h>
 #include <math.h>
 #include <string.h>
@@ -143,9 +142,10 @@ static char *c_messages[] = {
 	" \033[1;31;44mINSANE\033[0m:"
 };
 
+char date_time_buf[26];
 char time_buf[26];
 
-char *get_time(void) {
+char *get_date_time(void) {
 	int millisec;
 	struct tm *tm_info;
 	struct timeval tv;
@@ -160,8 +160,27 @@ char *get_time(void) {
 
 	tm_info = localtime(&tv.tv_sec);
 
-	strftime(time_buf, 26, "%Y:%m:%d %H:%M:%S", tm_info);
-	return time_buf;
+	strftime(date_time_buf, 26, "%Y:%m:%d %H:%M:%S", tm_info);
+	return date_time_buf;
+}
+
+struct tm *get_time(void) {
+	int millisec;
+	struct tm *tm_info;
+	struct timeval tv;
+
+	gettimeofday(&tv, NULL);
+
+	millisec = lrint(tv.tv_usec / 1000.0); // Round to nearest millisec
+	if(millisec >= 1000) { // Rounding up to nearest second
+		millisec -= 1000;
+		tv.tv_sec++;
+	}
+
+	return tm_info = localtime(&tv.tv_sec);
+
+	//strftime(time_buf, 26, "%Y:%m:%d %H:%M:%S", tm_info);
+	//return time_buf;
 }
 
 void _log(char *title, int line_no, log_type_t level, const char *fmt, ...) {
@@ -187,15 +206,15 @@ void _log(char *title, int line_no, log_type_t level, const char *fmt, ...) {
 
 		if(level > WARNING) {
 			if(last_errno) {
-				fprintf(stderr, "[%s:%s:%d]%s %s, errno: %d - %s", get_time(), title, line_no, type, (char *)buffer, last_errno, err_text);
+				fprintf(stderr, "[%s:%s:%d]%s %s, errno: %d - %s", get_date_time(), title, line_no, type, (char *)buffer, last_errno, err_text);
 			} else {
-				fprintf(stderr, "[%s:%s:%d]%s %s", get_time(), title, line_no, type, (char *)buffer);
+				fprintf(stderr, "[%s:%s:%d]%s %s", get_date_time(), title, line_no, type, (char *)buffer);
 			}
 		} else {
 			if(last_errno) {
-				fprintf(stdout, "[%s:%s:%d]%s %s, errno: %d - %s", get_time(), title, line_no, type, (char *)buffer, last_errno, err_text);
+				fprintf(stdout, "[%s:%s:%d]%s %s, errno: %d - %s", get_date_time(), title, line_no, type, (char *)buffer, last_errno, err_text);
 			} else {
-				fprintf(stdout, "[%s:%s:%d]%s %s", get_time(), title, line_no, type, (char *)buffer);
+				fprintf(stdout, "[%s:%s:%d]%s %s", get_date_time(), title, line_no, type, (char *)buffer);
 			}
 		}
 

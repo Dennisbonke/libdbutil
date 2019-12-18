@@ -27,7 +27,8 @@ extern void dbutils_about(void);
  */
 extern int lrandom(int min, int max);
 
-extern char *get_time(void);
+extern char *get_date_time(void);
+extern struct tm *get_time(void);
 
 #define db_min(a,b)   ((a) < (b) ? (a) : (b))
 #define db_max(a,b)   ((a) > (b) ? (a) : (b))

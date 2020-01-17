@@ -160,7 +160,7 @@ char *get_date_time(void) {
 
 	tm_info = localtime(&tv.tv_sec);
 
-	strftime(date_time_buf, 26, "%Y:%m:%d %H:%M:%S", tm_info);
+	strftime(date_time_buf, 26, "%d:%m:%Y %H:%M:%S", tm_info);
 	return date_time_buf;
 }
 

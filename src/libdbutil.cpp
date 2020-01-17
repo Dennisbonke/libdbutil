@@ -27,7 +27,7 @@ void dbutils_about(void) {
 					"'dbutils' is made by Dennis Bonke.\n"
 					"'dbutils' is licensed under the GNU GPLv3, which can be found here: %s.\n"
 					"The source code of 'dbutils' can be found here: %s.\n"
-					"Copyright (c) 2019\n", DBUTILS_LICENSE_URL, DBUTILS_SOURCE);
+					"Copyright (c) 2019 - 2020\n", DBUTILS_LICENSE_URL, DBUTILS_SOURCE);
 }
 
 /*

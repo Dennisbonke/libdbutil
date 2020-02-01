@@ -218,6 +218,8 @@ void _log(char *title, int line_no, log_type_t level, const char *fmt, ...) {
 			}
 		}
 
+		errno = last_errno = 0;
+
 	}
 	/* else ignore */
 }

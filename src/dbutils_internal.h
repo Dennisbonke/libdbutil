@@ -14,7 +14,7 @@ extern "C" {
 #ifndef LIB_DBUTILS_INTERNAL_H_
 #define LIB_DBUTILS_INTERNAL_H_
 
-#define DBUTILS_VERSION "v1.1.0"
+#define DBUTILS_VERSION "v1.1.1"
 #define DBUTILS_BUILD_DATE __DATE__
 #define DBUTILS_BUILD_TIME __TIME__
 #define DBUTILS_SOURCE "https://github.com/Dennisbonke/libdbutil"
